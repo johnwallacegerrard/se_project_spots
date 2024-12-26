@@ -1,7 +1,6 @@
 @import url(../vendor/normalize.css);
 @import url(../blocks/page.css);
 @import url(../blocks/header.css);
-@import url();
-@import url();
-@import url();
-@import url();
+@import url(../blocks/grid.css);
+@import url(../blocks/card.css);
+@import url(../blocks/footer.css);
