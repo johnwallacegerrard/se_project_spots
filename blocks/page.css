@@ -1,0 +1,14 @@
+.page {
+  max-width: 1440px;
+  min-width: 320px;
+}
+
+.content {
+  max-width: 1280px;
+  background-color: #fcf5e5;
+  padding: 5%;
+}
+
+.menu-bar {
+  text-align: center;
+}

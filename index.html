@@ -10,7 +10,7 @@
     <meta name="keywords" content="social-media photo share spots image" />
     <meta name="author" content="John Wallace Gerrard" />
     <title>Spots</title>
-    <link rel="stylesheet" href="./pages/styles.css" />
+    <link rel="stylesheet" href="./pages/style.css" />
     <link rel="favicon" href="" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,21 +22,31 @@
 
   <body class="page">
     <div class="menu-bar">SPOTS</div>
-    <header class="header">
-      <div class="avatar">
-        <img class="avatar__profile-pic" src="images/" />
-        <h1 class="avatar__name">Bessie Coleman</h1>
-        <p class="avatar__desc">Civil Aviator</p>
-      </div>
-      <button class="avatar__button">
-        <img
-          class="avatar__button-image"
-          src="images/edit-button.jpg"
-          alt="button-image"
-        />
-        <p>Edit Profile</p>
-      </button>
-    </header>
+    <div class="content">
+      <header class="header">
+        <div class="header__avatar">
+          <img class="header__avatar-pic" src="images/avatar-min.jpg" />
+          <div class="header__text">
+            <div>
+              <h1 class="header__name">Bessie Coleman</h1>
+              <p class="header__desc">Civil Aviator</p>
+            </div>
+            <div>
+              <button class="header__edit" type="button">
+                <img
+                  class="header__edit-image"
+                  src="images/edit-button.jpg"
+                  alt="button-image"
+                />Edit Profile</a>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="header__button-container">
+          <button class="header__button">+ New Post</button>
+        </div>
+      </header>
+    </div>
   </body>
 </html>
-*
+
