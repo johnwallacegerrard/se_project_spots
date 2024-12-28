@@ -1,59 +1,11 @@
 .header {
-  max-width: 1280px;
-  border-bottom: solid 1px #212121;
+  background-color: #fff;
+  padding: 10px 0;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-bottom: 20px;
+  justify-content: center;
 }
 
-.header__avatar {
-  display: flex;
-  flex-direction: row;
-}
-
-.header__avatar-pic {
-  height: 100%;
-  width: auto;
-}
-
-.header__text {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
-
-.header__name {
-  font-size: 2rem;
-  line-height: 2rem;
-}
-
-.header__desc {
-  font-size: 1rem;
-  line-height: 1rem;
-}
-
-.header__edit {
-  font-size: 1rem;
-  line-height: 1rem;
-}
-
-.header__edit-image {
-  height: 100%;
-  width: auto;
-  background-color: #fcf5e5;
-  border-style: none;
-}
-
-.header__button-container {
-  display: flex;
-}
-
-.header__button {
-  background-color: #212121;
-  padding: 18px 32px;
-  border-radius: 8px;
-  width: 149px;
-  align-self: flex-end;
+.header__logo {
+  width: 94px;
+  height: 24px;
 }
