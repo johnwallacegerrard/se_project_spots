@@ -17,13 +17,13 @@
   height: 190px;
   width: 190px;
   margin-right: 12px;
+  border-radius: 8px;
 }
 
 .profile__column {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
 }
 
 .profile__name {
@@ -44,27 +44,33 @@
 }
 
 .profile__edit-button {
-  color: rgba(33, 33, 33, 0.7);
+  display: flex;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(33, 33, 33);
   font-size: 1rem;
   line-height: 1rem;
   border: none;
   font-family: inherit;
-  background-color: #fcf5e5;
+  background-color: transparent;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-weight: 500;
 }
 
 .profile__edit-button:hover {
-  opacity: 4;
+  opacity: 0.8;
 }
 
 .profile__edit-image {
   height: 100%;
   width: auto;
   background-color: transparent;
+  margin-right: 8px;
 }
 
 .profile__post-button {
+  display: flex;
+  justify-content: space-between;
   color: #fcf5e5;
   background-color: #212121;
   padding: 18px;
