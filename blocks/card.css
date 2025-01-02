@@ -23,30 +23,33 @@
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-weight: 500;
   padding: 0;
-  justify-content: space-between;
   font-size: 20px;
   line-height: 24px;
   margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
+  text-wrap: nowrap;
 }
 
 .card__like-button {
-  background-image: url(../images/like-icon.jpg);
+  background-image: url(../images/union.svg);
   border: none;
   background-color: transparent;
-  opacity: 70%;
+  opacity: 40%;
   height: 20px;
   width: 23px;
 }
 
 .card__like-button:hover {
   opacity: 4;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 627px) {
   .card__image {
     height: 288px;
     width: 288px;
+  }
+  .card__title {
+    font-size: 16px;
+    line-height: 16px;
   }
 }

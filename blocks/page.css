@@ -1,6 +1,7 @@
 .page {
   max-width: 1440px;
   min-height: 100vh;
-  min-width: 320px;
   background-color: #fcf5e5;
+  padding: 0;
+  margin: 0;
 }
