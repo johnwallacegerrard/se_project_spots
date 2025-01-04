@@ -56,6 +56,8 @@
 }
 
 .profile__edit-button {
+  display: flex;
+  align-items: center;
   text-align: left;
   color: rgba(33, 33, 33);
   font-size: 1rem;
@@ -65,10 +67,11 @@
   background-color: transparent;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-weight: 500;
+  opacity: 70%;
 }
 
 .profile__edit-button:hover {
-  opacity: 70%;
+  opacity: 100%;
   cursor: pointer;
 }
 
@@ -118,7 +121,6 @@
     height: 80px;
     width: 80px;
     margin: 0px auto 12px;
-    border-radius: 8px;
   }
 
   .profile__name {

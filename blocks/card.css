@@ -19,6 +19,7 @@
 }
 
 .card__title {
+  color: #212121;
   max-width: 250px;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-weight: 500;
