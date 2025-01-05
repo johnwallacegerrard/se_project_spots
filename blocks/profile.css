@@ -59,7 +59,6 @@
 .profile__edit-button {
   display: flex;
   align-items: center;
-  justify-content: center;
   text-align: left;
   color: rgba(33, 33, 33);
   font-size: 1rem;
@@ -99,6 +98,7 @@
 
 .profile__post-button:hover {
   cursor: pointer;
+  opacity: 0.8;
 }
 
 .profile__post-image {
@@ -133,6 +133,7 @@
   .profile__edit-button {
     text-align: center;
     margin: 32px 0 20px;
+    justify-content: center;
   }
 
   .profile__post-button {
