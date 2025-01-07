@@ -1,0 +1,84 @@
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+
+.modal_opened {
+  visibility: visible;
+}
+
+.modal__container {
+  position: relative;
+  background-color: #fff;
+  max-width: 730px;
+  padding: 32px 50px;
+  border-radius: 8px;
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: 32px;
+  right: 50px;
+  background-image: url(../images/close-btn.svg);
+  background-position: center;
+  height: 40px;
+  width: 40px;
+  opacity: 40%;
+  border: none;
+}
+
+.modal__title {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  margin: 0 0 32px;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.modal__label {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 17.6px;
+  color: rgba(33, 33, 33, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal__input {
+  width: 630px;
+  font-weight: 500;
+  padding: 16px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(33, 33, 33, 0.4);
+  font-size: 20px;
+  line-height: 20px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+.modal__save-btn {
+  width: 156px;
+  border-radius: 8px;
+  padding: 18px 32px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  color: #fcf5e5;
+  background-color: #212121;
+}
