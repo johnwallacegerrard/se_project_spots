@@ -110,25 +110,35 @@
       <footer class="footer">
         <p class="footer__copyright">2024 &copy; Spots</p>
       </footer>
-      <div class="modal modal_opened">
+      <div id="edit-modal" class="modal">
         <div class="modal__container">
-          <button class="modal__close-btn" type="submit"></button>
+          <button class="modal__close-button" type="button"></button>
           <h2 class="modal__title">Edit profile</h2>
 
           <form name="edit-profile" class="modal__form">
             <label for="name" class="modal__label"
               >Name
-              <input id="name" type="text" class="modal__input" />
+              <input
+                id="name"
+                type="text"
+                class="modal__input"
+                placeholder="Type your name"
+              />
             </label>
             <label for="description" class="modal__label"
               >Description
-              <input id="description" type="text" class="modal__input" />
+              <input
+                id="description"
+                type="text"
+                class="modal__input"
+                placeholder="Describe yourself"
+              />
             </label>
             <button class="modal__save-btn" type="submit">Save</button>
           </form>
         </div>
       </div>
     </div>
-    <script defer src="scripts/index.js"></script>
+    <script defer src="./scripts/index.js"></script>
   </body>
 </html>
