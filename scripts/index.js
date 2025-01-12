@@ -1,11 +1,11 @@
 const initialCards = [
   {
     name: "Val Thorens",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
+    link: "../images/thorens.jpg",
   },
   {
     name: "Restaurant terrace",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
+    link: "../images/restaurant.jpg",
   },
   {
     name: "An outdoor cafe",
@@ -27,10 +27,51 @@ const initialCards = [
 
 const profileEditButton = document.querySelector(".profile__edit-button");
 const modalCloseButton = document.querySelector(".modal__close-button");
+const modalSaveButton = document.querySelector(".modal__save-btn");
 const editProfileModal = document.querySelector("#edit-modal");
+const inputName = editProfileModal.querySelector("#name");
+const inputJob = editProfileModal.querySelector("#description");
+const profileNameElement = document.querySelector(".profile__name");
+const profileJobElement = document.querySelector(".profile__description");
+console.log(inputName);
+console.log(inputJob);
+console.log(profileNameElement);
+console.log(profileJobElement);
 profileEditButton.addEventListener("click", function () {
   editProfileModal.classList.add("modal_opened");
+  inputName.value = profileNameElement.textContent;
+  inputJob.value = profileJobElement.textContent;
 });
 modalCloseButton.addEventListener("click", function () {
   editProfileModal.classList.remove("modal_opened");
 });
+
+function handleProfileFormSubmit() {
+  profileNameElement.textContent = inputName.value;
+  profileJobElement.textContent = inputJob.value;
+  editProfileModal.classList.remove("modal_opened");
+}
+
+editProfileModal.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  handleProfileFormSubmit();
+});
+
+const cardTemplate = document.querySelector("#card").content;
+const cardsList = document.querySelector(".cards__list");
+
+function getCard(data) {
+  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+  const cardImage = cardElement.querySelector(".card__image");
+  const cardContent = cardElement.querySelector(".card__title");
+  cardImage.src = data.link;
+  cardImage.alt = data.name;
+  cardContent.textContent = data.name;
+
+  return cardElement;
+}
+
+for (let i = 0; i < initialCards.length; i++) {
+  const card = getCard(initialCards[i]);
+  cardsList.append(card);
+}
