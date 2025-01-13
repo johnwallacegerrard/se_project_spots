@@ -37,6 +37,7 @@
 }
 .modal__close-button:hover {
   opacity: 70%;
+  cursor: pointer;
 }
 
 .modal__title {
@@ -86,9 +87,12 @@
   background-color: #212121;
 }
 
+.modal__save-btn:hover {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 627px) {
   .modal__container {
-    width: 300px;
     padding: 12px;
   }
   .modal__title {
@@ -97,13 +101,18 @@
     line-height: 20px;
   }
   .modal__form {
+    width: 276px;
     margin-top: 24px;
     gap: 24px;
   }
 
+  .modal {
+    line-height: 16px;
+  }
+
   .modal__input {
     font-size: 16px;
-    line-height: 16px;
+    line-height: 14px;
     width: auto;
     padding: 16px 12px;
   }
