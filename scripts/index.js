@@ -108,7 +108,7 @@ function getCardElement(data) {
 
   cardImage.addEventListener("click", () => {
     console.log("it works");
-    previewModal.classList.add("modal_opened");
+    openModal(previewModal);
     previewModalImage.src = cardImage.src;
     previewModalImage.alt = cardContent.textContent;
     previewModalTitle.textContent = cardContent.textContent;
