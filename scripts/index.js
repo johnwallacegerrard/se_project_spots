@@ -28,17 +28,15 @@ const initialCards = [
 const profileEditButton = document.querySelector(".profile__edit-button");
 const newPostButton = document.querySelector(".profile__post-button");
 
-const modalSaveButton = document.querySelector(".edit-modal__save-btn");
+const modalSaveButton = document.querySelector(".modal__save-btn");
 const newPostModal = document.querySelector("#new-post-modal");
-const newPostClosebutton = newPostModal.querySelector(
-  ".edit-modal__close-button"
-);
+const newPostClosebutton = newPostModal.querySelector(".modal__close-button");
 const editProfileModal = document.querySelector("#edit-modal");
 const editModalCloseButton = editProfileModal.querySelector(
-  ".edit-modal__close-button"
+  ".modal__close-button"
 );
-const profileModalForm = document.querySelector(".edit-modal__form");
-const newPostModalForm = newPostModal.querySelector(".edit-modal__form");
+const profileModalForm = document.forms["edit-profile"];
+const newPostModalForm = document.forms["new-post"];
 const inputLink = newPostModalForm.querySelector("#image-link");
 const inputCaption = newPostModalForm.querySelector("#caption");
 const inputName = editProfileModal.querySelector("#name");
@@ -47,13 +45,21 @@ const profileNameElement = document.querySelector(".profile__name");
 const profileJobElement = document.querySelector(".profile__description");
 const cardTemplate = document.querySelector("#card").content;
 const cardsList = document.querySelector(".cards__list");
+const previewModal = document.querySelector("#preview-modal");
+
+const previewModalImage = previewModal.querySelector(".modal__image");
+const previewModalTitle = previewModal.querySelector(".modal__title_preview");
+
+const previewModalCloseButton = previewModal.querySelector(
+  ".modal__close-button_preview"
+);
 
 function openModal(modal) {
-  modal.classList.add("edit-modal_opened");
+  modal.classList.add("modal_opened");
 }
 
 function closeModal(modal) {
-  modal.classList.remove("edit-modal_opened");
+  modal.classList.remove("modal_opened");
 }
 
 profileEditButton.addEventListener("click", (modal) => {
@@ -83,10 +89,10 @@ function handleProfileFormSubmit(evt) {
 
 function handleNewPostFormSubmit(evt) {
   evt.preventDefault();
-
   const inputValues = { name: inputCaption.value, link: inputLink.value };
   const card = getCardElement(inputValues);
   cardsList.prepend(card);
+  newPostModalForm.reset();
   closeModal(newPostModal);
 }
 
@@ -99,29 +105,17 @@ function getCardElement(data) {
   cardImage.src = data.link;
   cardImage.alt = data.name;
   cardContent.textContent = data.name;
-  const cardLikeElement = cardElement.querySelector(".card__like-button");
-  const cardDeleteButton = cardElement.querySelector(".card__delete-button");
-
-  const previewModal = document.querySelector(".preview-modal");
-  const previewModalCloseButton = previewModal.querySelector(
-    ".preview-modal__close-button"
-  );
 
   cardImage.addEventListener("click", () => {
     console.log("it works");
-    previewModal.classList.add("preview-modal_opened");
-    const previewModalImage = previewModal.querySelector(
-      ".preview-modal__image"
-    );
-
+    previewModal.classList.add("modal_opened");
     previewModalImage.src = cardImage.src;
-
-    console.log(cardImage);
+    previewModalImage.alt = cardContent.textContent;
+    previewModalTitle.textContent = cardContent.textContent;
   });
 
-  previewModalCloseButton.addEventListener("click", () => {
-    previewModal.classList.remove("preview-modal_opened");
-  });
+  const cardLikeElement = cardElement.querySelector(".card__like-button");
+  const cardDeleteButton = cardElement.querySelector(".card__delete-button");
 
   cardLikeElement.addEventListener("click", () => {
     cardLikeElement.classList.toggle("card__like-button_liked");
@@ -137,6 +131,10 @@ function getCardElement(data) {
 initialCards.forEach((item) => {
   const card = getCardElement(item);
   cardsList.append(card);
+});
+
+previewModalCloseButton.addEventListener("click", () => {
+  closeModal(previewModal);
 });
 
 newPostModalForm.addEventListener("submit", handleNewPostFormSubmit);

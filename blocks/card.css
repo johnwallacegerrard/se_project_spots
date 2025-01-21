@@ -48,6 +48,8 @@
 }
 
 .card__like-button_liked {
+  background-repeat: no-repeat;
+  background-color: transparent;
   opacity: 1;
   background-image: url(../images/liked-icon.svg);
 }
@@ -57,6 +59,7 @@
 }
 
 .card__delete-button {
+  cursor: pointer;
   background-color: transparent;
   border: none;
   background-image: url(../images/delete-default.svg);

@@ -25,7 +25,7 @@
             <img
               class="profile__user-pic"
               src="images/avatar-min.jpg"
-              alt="bessie coleman"
+              alt="user avatar"
             />
             <div class="profile__column">
               <div>
@@ -37,7 +37,7 @@
                 <img
                   class="profile__edit-image"
                   src="images/edit-button.svg"
-                  alt="button-image"
+                  alt="edit-button-image"
                 />Edit Profile
               </button>
             </div>
@@ -45,7 +45,7 @@
           <button class="profile__post-button" type="button">
             <img
               src="images/add.svg"
-              alt="add"
+              alt="add-card-button"
               class="profile__post-image"
             />New Post
           </button>
@@ -55,7 +55,7 @@
             <template id="card">
               <li class="card">
                 <button class="card__delete-button" type="button"></button>
-                <img alt="card-image" class="card__image" />
+                <img src="" alt="" class="card__image" />
                 <div class="card__content">
                   <h2 class="card__title"></h2>
                   <button class="card__like-button" type="button"></button>
@@ -68,67 +68,73 @@
       <footer class="footer">
         <p class="footer__copyright">2024 &copy; Spots</p>
       </footer>
-      <div id="edit-modal" class="edit-modal">
-        <div class="edit-modal__container">
-          <button class="edit-modal__close-button" type="button"></button>
-          <h2 class="edit-modal__title">Edit profile</h2>
+      <div id="edit-modal" class="modal">
+        <div class="modal__container">
+          <button class="modal__close-button" type="button"></button>
+          <h2 class="modal__title">Edit profile</h2>
 
-          <form name="edit-profile" class="edit-modal__form">
-            <label for="name" class="edit-modal__label"
+          <form name="edit-profile" class="modal__form">
+            <label for="name" class="modal__label"
               >Name
               <input
                 id="name"
                 type="text"
-                class="edit-modal__input"
+                class="modal__input"
                 placeholder="Type your name"
               />
             </label>
-            <label for="description" class="edit-modal__label"
+            <label for="description" class="modal__label"
               >Description
               <input
                 id="description"
                 type="text"
-                class="edit-modal__input"
+                class="modal__input"
                 placeholder="Describe yourself"
               />
             </label>
-            <button class="edit-modal__save-btn" type="submit">Save</button>
+            <button class="modal__save-btn" type="submit">Save</button>
           </form>
         </div>
       </div>
-      <div id="new-post-modal" class="edit-modal">
-        <div class="edit-modal__container">
-          <button class="edit-modal__close-button" type="button"></button>
-          <h2 class="edit-modal__title">New Post</h2>
+      <div id="new-post-modal" class="modal">
+        <div class="modal__container">
+          <button class="modal__close-button" type="button"></button>
+          <h2 class="modal__title">New Post</h2>
 
-          <form name="new-post" class="edit-modal__form">
-            <label for="image-link" class="edit-modal__label"
+          <form name="new-post" class="modal__form">
+            <label for="image-link" class="modal__label"
               >Image link
               <input
                 id="image-link"
                 type="url"
-                class="edit-modal__input"
+                class="modal__input"
                 placeholder="Paste a link to the picture"
               />
             </label>
-            <label for="caption" class="edit-modal__label"
+            <label for="caption" class="modal__label"
               >Caption
               <input
                 id="caption"
                 type="text"
-                class="edit-modal__input"
+                class="modal__input"
                 placeholder="Type your caption"
               />
             </label>
-            <button class="edit-modal__save-btn" type="submit">Save</button>
+            <button class="modal__save-btn" type="submit">Save</button>
           </form>
         </div>
       </div>
 
-      <div class="preview-modal">
-        <div class="preview-modal__container">
-          <img alt="image preview" class="preview-modal__image" />
-          <button class="preview-modal__close-button"></button>
+      <div id="preview-modal" class="modal">
+        <div class="modal__container_preview">
+          <button
+            class="modal__close-button modal__close-button_preview"
+            type="button"
+          ></button>
+          <img class="modal__image" src="" alt="" />
+          <div>
+            <p class="modal__title_preview"></p>
+          </div>
         </div>
       </div>
     </div>
