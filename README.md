@@ -11,6 +11,7 @@ A social-media platform for image sharing. Users can upload and share their favo
 - HTML
 - CSS
 - Responsive Design
+- JavaScript
 
 ## Deployment
 
