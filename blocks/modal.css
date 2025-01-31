@@ -81,10 +81,17 @@
 .modal__form {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+}
+
+.modal__form-set {
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 
 .modal__label {
+  display: block;
+  margin-bottom: 32px;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -112,6 +119,16 @@
   cursor: pointer;
 }
 
+.modal__error {
+  display: block;
+  color: rgba(255, 0, 0, 0.7);
+  visibility: hidden;
+}
+
+.modal__error_shown {
+  visibility: visible;
+}
+
 .modal__save-btn {
   width: 156px;
   border-radius: 8px;
@@ -126,6 +143,10 @@
 
 .modal__save-btn:hover {
   cursor: pointer;
+}
+
+.modal__save-btn_inactive {
+  background-color: rgba(33, 33, 33, 0.5);
 }
 
 .modal__image {
