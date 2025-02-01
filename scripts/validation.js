@@ -31,8 +31,8 @@ const checkInputValidity = (formElement, inputElement, config) => {
   }
 };
 
-const hasInvalidInput = (inputs) => {
-  return inputs.some((input) => {
+const hasInvalidInput = (inputList) => {
+  return inputList.some((input) => {
     return !input.validity.valid;
   });
 };
@@ -60,6 +60,8 @@ const setEventListeners = (formElement, config) => {
     formElement.querySelectorAll(config.inputSelector)
   );
   const buttonElement = formElement.querySelector(config.submitButtonSelector);
+
+  toggleButtonState(inputList, buttonElement, config);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
