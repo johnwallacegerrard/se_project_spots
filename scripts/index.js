@@ -49,10 +49,10 @@ const previewModal = document.querySelector("#preview-modal");
 const cardSubmitButton = newPostModal.querySelector(".modal__save-btn");
 
 const previewModalImage = previewModal.querySelector(".modal__image");
-const previewModalTitle = previewModal.querySelector(".modal__title_preview");
+const previewModalTitle = previewModal.querySelector(".modal__title-preview");
 
 const previewModalCloseButton = previewModal.querySelector(
-  ".modal__close-button_preview"
+  ".modal__close-button"
 );
 
 const modals = document.querySelectorAll(".modal");
