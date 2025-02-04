@@ -75,10 +75,6 @@ function handleEscape(evt) {
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", handleEscape);
-  if (modal === editProfileModal)
-    () => {
-      resetValidation(formSelector, inputSelector, settings);
-    };
 }
 
 function closeModal(modal) {
@@ -88,8 +84,10 @@ function closeModal(modal) {
 
 profileEditButton.addEventListener("click", (modal) => {
   openModal(editProfileModal);
+
   inputName.value = profileNameElement.textContent;
   inputJob.value = profileJobElement.textContent;
+  resetValidation(profileModalForm, [inputJob, inputName]);
 });
 
 newPostButton.addEventListener("click", (modal) => {

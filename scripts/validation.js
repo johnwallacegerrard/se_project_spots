@@ -23,9 +23,9 @@ const hideInputError = (formElement, inputElement, config) => {
   inputElement.classList.remove(config.inputErrorClass);
 };
 
-const resetValidation = (formElement, errorElement) => {
-  formElement.forEach(inputElement, () => {
-    hideInputError(formElement, inputElement, config);
+const resetValidation = (formElement, inputList) => {
+  inputList.forEach((inputElement) => {
+    hideInputError(formElement, inputElement, settings);
   });
 };
 
