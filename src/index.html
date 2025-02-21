@@ -10,21 +10,24 @@
     <meta name="keywords" content="social-media photo share spots image" />
     <meta name="author" content="John Wallace Gerrard" />
     <title>Spots</title>
-    <link rel="stylesheet" href="./pages/style.css" />
-    <link rel="icon" href="./favicon.ico" />
+    <!-- <link rel="icon" href="./favicon.ico" /> -->
   </head>
 
   <body>
     <div class="page">
       <header class="header">
-        <img src="./images/logo.svg" alt="spots-logo" class="header__logo" />
+        <img
+          src="<%=require('./images/logo.svg')%>"
+          alt="spots-logo"
+          class="header__logo"
+        />
       </header>
       <main class="content">
         <section class="profile">
           <div class="profile__avatar">
             <img
               class="profile__user-pic"
-              src="images/avatar-min.jpg"
+              src="<%=require('./images/avatar-min.jpg')%>"
               alt="user avatar"
             />
             <div class="profile__column">
@@ -36,7 +39,7 @@
               <button class="profile__edit-button" type="button">
                 <img
                   class="profile__edit-image"
-                  src="images/edit-button.svg"
+                  src="<%=require('./images/edit-button.svg')%>"
                   alt="edit-button-image"
                 />Edit Profile
               </button>
@@ -44,7 +47,7 @@
           </div>
           <button class="profile__post-button" type="button">
             <img
-              src="images/add.svg"
+              src="<%=require('./images/add.svg')%>"
               alt="add-card-button"
               class="profile__post-image"
             />New Post
@@ -165,7 +168,5 @@
         </div>
       </div>
     </div>
-    <script defer src="./scripts/validation.js"></script>
-    <script defer src="./scripts/index.js"></script>
   </body>
 </html>

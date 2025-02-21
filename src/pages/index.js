@@ -1,11 +1,13 @@
+import { enableValidation, settings } from "../scripts/validation.js";
+import "./style.css";
 const initialCards = [
   {
-    name: "Val Thorens",
-    link: "../images/thorens.jpg",
+    name: "Adorable puppy",
+    link: "https://www.petlandflorida.com/wp-content/uploads/2022/04/shutterstock_1290320698-1-scaled.jpg",
   },
   {
-    name: "Restaurant terrace",
-    link: "../images/restaurant.jpg",
+    name: "Art of Bonsai",
+    link: "https://centredejardinbrossard.com/wp-content/uploads/2021/10/bonsai.jpg",
   },
   {
     name: "An outdoor cafe",
@@ -20,7 +22,7 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
   },
   {
-    name: "Mountain House",
+    name: "Mountain house",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
 ];
@@ -160,3 +162,5 @@ previewModalCloseButton.addEventListener("click", () => {
 });
 
 newPostModalForm.addEventListener("submit", handleNewPostFormSubmit);
+
+enableValidation(settings);
