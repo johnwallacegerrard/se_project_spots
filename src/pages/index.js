@@ -1,31 +1,29 @@
 import { enableValidation, settings } from "../scripts/validation.js";
 import "./style.css";
-const initialCards = [
-  {
-    name: "Adorable puppy",
-    link: "https://www.petlandflorida.com/wp-content/uploads/2022/04/shutterstock_1290320698-1-scaled.jpg",
+import Api from "../utils/Api.js";
+import { ConcatenationScope } from "webpack";
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "3295f8d6-4354-4aef-97af-4d3c0e114b45",
+    "Content-Type": "application/json",
   },
-  {
-    name: "Art of Bonsai",
-    link: "https://centredejardinbrossard.com/wp-content/uploads/2021/10/bonsai.jpg",
-  },
-  {
-    name: "An outdoor cafe",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-  },
-  {
-    name: "A very long bridge, over the forest and through the trees",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-  },
-  {
-    name: "Tunnel with morning light",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-  },
-  {
-    name: "Mountain house",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-];
+});
+
+api
+  .getAppInfo()
+  .then(([cards, userData]) => {
+    profileNameElement.textContent = userData.name;
+    profileJobElement.textContent = userData.about;
+    profileAvatarElement.src = userData.avatar;
+
+    cards.forEach((item) => {
+      const card = getCardElement(item);
+      cardsList.append(card);
+    });
+  })
+  .catch(console.error);
 
 const profileEditButton = document.querySelector(".profile__edit-button");
 const newPostButton = document.querySelector(".profile__post-button");
@@ -45,6 +43,7 @@ const inputName = editProfileModal.querySelector("#name-input");
 const inputJob = editProfileModal.querySelector("#description-input");
 const profileNameElement = document.querySelector(".profile__name");
 const profileJobElement = document.querySelector(".profile__description");
+const profileAvatarElement = document.querySelector(".profile__user-pic");
 const cardTemplate = document.querySelector("#card").content;
 const cardsList = document.querySelector(".cards__list");
 const previewModal = document.querySelector("#preview-modal");
@@ -57,7 +56,23 @@ const previewModalCloseButton = previewModal.querySelector(
   ".modal__close-button"
 );
 
+const editProfileAvatarButton = document.querySelector(
+  ".profile__edit-avatar-btn"
+);
+const editProfileAvatarModal = document.querySelector("#edit-profile-avatar");
+const deleteCardModal = document.querySelector("#card-delete-verif");
+const verifyDeleteButton = deleteCardModal.querySelector(".modal__delete-btn");
+const cancelDeleteButton = deleteCardModal.querySelector(
+  ".modal__delete-btn_cancel"
+);
+const deleteModalCloseButton = deleteCardModal.querySelector(
+  ".modal__close-button"
+);
+
 const modals = document.querySelectorAll(".modal");
+
+let selectedCard;
+let selectedCardId;
 
 modals.forEach((modal) => {
   modal.addEventListener("click", function (event) {
@@ -96,6 +111,10 @@ newPostButton.addEventListener("click", (modal) => {
   openModal(newPostModal);
 });
 
+editProfileAvatarButton.addEventListener("click", (modal) => {
+  openModal(editProfileAvatarModal);
+});
+
 newPostClosebutton.addEventListener("click", (modal) => {
   closeModal(newPostModal);
 });
@@ -104,21 +123,41 @@ editModalCloseButton.addEventListener("click", (modal) => {
   closeModal(editProfileModal);
 });
 
+deleteModalCloseButton.addEventListener("click", (modal) => {
+  closeModal(deleteCardModal);
+});
+
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  profileNameElement.textContent = inputName.value;
-  profileJobElement.textContent = inputJob.value;
-  closeModal(editProfileModal);
+  api
+    .editUserInfo({ name: inputName.value, about: inputJob.value })
+    .then((data) => {
+      profileNameElement.textContent = data.name;
+      profileJobElement.textContent = data.about;
+      closeModal(editProfileModal);
+    })
+    .catch(console.error);
 }
 
 function handleNewPostFormSubmit(evt) {
   evt.preventDefault();
-  const inputValues = { name: inputCaption.value, link: inputLink.value };
-  const card = getCardElement(inputValues);
-  cardsList.prepend(card);
-  newPostModalForm.reset();
-  disableButton(cardSubmitButton, settings);
-  closeModal(newPostModal);
+  api
+    .addCard({ name: inputCaption.value, link: inputLink.value })
+    .then((data) => {
+      const card = getCardElement(data);
+      cardsList.prepend(card);
+      newPostModalForm.reset();
+      // disableButton(cardSubmitButton, settings);
+      closeModal(newPostModal);
+    })
+    .catch(console.error);
+}
+
+function handleDeleteCard(cardElement, data) {
+  selectedCard = cardElement;
+  selectedCardId = data._id;
+  console.log(data._id);
+  openModal(deleteCardModal);
 }
 
 profileModalForm.addEventListener("submit", handleProfileFormSubmit);
@@ -145,17 +184,18 @@ function getCardElement(data) {
     cardLikeElement.classList.toggle("card__like-button_liked");
   });
 
-  cardDeleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
+  cardDeleteButton.addEventListener("click", (evt) =>
+    handleDeleteCard(cardElement, data)
+  );
 
   return cardElement;
 }
 
-initialCards.forEach((item) => {
-  const card = getCardElement(item);
-  cardsList.append(card);
-});
+function handleDeleteCardSubmit() {
+  api.deleteCard(selectedCardId).then(() => {});
+}
+
+verifyDeleteButton.addEventListener("submit", handleDeleteCardSubmit);
 
 previewModalCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
