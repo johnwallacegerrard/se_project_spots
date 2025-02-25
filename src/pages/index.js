@@ -1,7 +1,6 @@
 import { enableValidation, settings } from "../scripts/validation.js";
 import "./style.css";
 import Api from "../utils/Api.js";
-import { ConcatenationScope } from "webpack";
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
