@@ -25,14 +25,16 @@
       <main class="content">
         <section class="profile">
           <div class="profile__avatar">
-            <button class="profile__edit-avatar-btn">
-              <img
-                class="profile__edit-image"
-                src="<%=require('./images/avatar-edit.svg')%>"
-                alt="edit-button-image"
-              />Edit Avatar
-            </button>
-            <img class="profile__user-pic" src="" alt="user avatar" />
+            <div class="profile__avatar-container">
+              <button class="profile__edit-avatar-btn">
+                <img
+                  class="profile__edit-avatar-icon"
+                  src="<%=require('./images/avatar-edit.svg')%>"
+                  alt="edit-button-image"
+                />
+              </button>
+              <img class="profile__user-pic" src="" alt="user avatar" />
+            </div>
             <div class="profile__column">
               <div>
                 <h1 class="profile__name">Bessie Coleman</h1>
@@ -44,7 +46,7 @@
                   class="profile__edit-image"
                   src="<%=require('./images/edit-button.svg')%>"
                   alt="edit-button-image"
-                />Edit Profile
+                />Edit profile
               </button>
             </div>
           </div>
@@ -172,10 +174,8 @@
                   type="url"
                   class="modal__input"
                   placeholder="Paste the link to an image"
-                  minlength="2"
-                  maxlength="40"
                 />
-                <span id="edit-avatar-input-error" class="modal__error"
+                <span id="profile-picture-error" class="modal__error"
                   >Please enter a URL.</span
                 >
               </label>
@@ -185,7 +185,7 @@
         </div>
       </div>
 
-      <div id="card-delete-verif" class="modal modal_opened">
+      <div id="card-delete-verif" class="modal">
         <div class="modal__container">
           <button
             class="modal__close-button modal__close-button_delete"
