@@ -236,7 +236,18 @@
   }
 
   .modal {
+    padding: 10px;
     line-height: 16px;
+  }
+
+  .modal__buttons {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .modal__delete-btn_cancel {
+    margin: 0;
   }
 
   .modal__input {

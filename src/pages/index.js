@@ -2,6 +2,7 @@ import {
   enableValidation,
   settings,
   resetValidation,
+  disableButton,
 } from "../scripts/validation.js";
 import "./style.css";
 import { setButtonText } from "../utils/helpers.js";
@@ -172,7 +173,7 @@ function handleNewPostFormSubmit(evt) {
       const card = getCardElement(data);
       cardsList.prepend(card);
       newPostModalForm.reset();
-      // disableButton(cardSubmitButton, settings);
+      disableButton(newPostSaveButton, settings);
       closeModal(newPostModal);
     })
     .catch(console.error)
@@ -184,13 +185,12 @@ function handleNewPostFormSubmit(evt) {
 function handleDeleteCard(cardElement, data) {
   selectedCard = cardElement;
   selectedCardId = data._id;
-  console.log(data._id);
   openModal(deleteCardModal);
 }
 
 function handleEditAvatarFormSubmit(evt) {
-  evt.preventDefault(avatarSubmitButton, true);
-  setButtonText();
+  evt.preventDefault();
+  setButtonText(avatarSubmitButton, true);
   api
     .editAvatar(avatarLinkInput.value)
     .then((data) => {
